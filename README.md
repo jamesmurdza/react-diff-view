@@ -202,7 +202,7 @@ const renderHunk = hunk => [
 
 const DiffFile = ({diffType, hunks}) => (
     <Diff viewType="split" diffType={diffType}>
-        {flatMap(hunks, renderHunk)}
+        {hunks => flatMap(hunks, renderHunk)}
     </Diff>
 );
 ```
@@ -401,7 +401,7 @@ class File extends PureComponent {
 
         return (
             <Diff viewType="split" diffType={diffType}>
-                {hunk.map(hunk => <Hunk key={hunk.content} hunk={hunk} {...hunkProps} />)}
+                {hunks => hunks.map(hunk => <Hunk key={hunk.content} hunk={hunk} {...hunkProps} />)}
             </Diff>
         );
     }
